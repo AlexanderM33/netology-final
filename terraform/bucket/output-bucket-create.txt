@@ -1,0 +1,57 @@
+[0m[1myandex_iam_service_account.bucket-operator: Refreshing state... [id=ajeb5g49kb8lltvp5t63][0m
+[0m[1myandex_resourcemanager_folder_iam_member.viewer: Refreshing state... [id=b1g34bji6bmqoppesjg6/viewer/serviceAccount:ajeb5g49kb8lltvp5t63][0m
+[0m[1myandex_iam_service_account_static_access_key.bucket-operator: Refreshing state... [id=ajeu8ou5h5r3p3qetkq6][0m
+[0m[1myandex_resourcemanager_folder_iam_member.editor: Refreshing state... [id=b1g34bji6bmqoppesjg6/editor/serviceAccount:ajeb5g49kb8lltvp5t63][0m
+[0m[1mdata.template_file.provider: Reading...[0m[0m
+[0m[1mdata.template_file.provider: Read complete after 0s [id=c27e08b8e3cacde52850db3a6afb0df75e94d114429ecee26899bac46c5f89cc][0m
+[0m[1myandex_storage_bucket.bucket: Refreshing state... [id=mishinan-diplom-bucket][0m
+[0m[1mnull_resource.provider: Refreshing state... [id=3087182465029091926][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # null_resource.provider[0m is tainted, so must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "null_resource" "provider" {
+      [33m~[0m[0m id       = "3087182465029091926" -> (known after apply)
+      [33m~[0m[0m triggers = {
+          [33m~[0m[0m "template" = <<-EOT
+                terraform {
+                  required_providers {
+                    yandex = {
+                      source  = "yandex-cloud/yandex"
+                      version = "0.78.2"
+                    }
+                  }
+                  backend "s3" {
+                    endpoint   = "storage.yandexcloud.net"
+              [31m-[0m[0m     bucket     = "dimploma-bucket"
+              [32m+[0m[0m     bucket     = "mishinan-diplom-bucket"
+                    region     = "ru-central1"
+                    key        = "terraform.tfstate"
+                    access_key = "YCAJEdxGVmTdh4kTvSpuxdSVE"
+                    secret_key = "YCPkbvWDNzE7-4wfL7hEjMHqmu8fhetbpP9Ds0ts"
+                
+                    skip_region_validation      = true
+                    skip_credentials_validation = true
+                  }
+                }
+                
+                provider "yandex" {
+                  service_account_key_file = "key.json"
+                  cloud_id                 = var.yandex_cloud_id
+                  folder_id                = var.yandex_folder_id
+                  zone                     = var.yandex_compute_default_zone
+                }
+            EOT
+        }
+    }
+
+[1mPlan:[0m 1 to add, 0 to change, 1 to destroy.
+[0m[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

@@ -1,0 +1,6 @@
+key.json
+terraform.tfstate
+terraform.tfstate.backup
+admin.conf
+credentials-export.tf
+variables.tf
