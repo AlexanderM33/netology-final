@@ -63,17 +63,15 @@ https://github.com/AlexanderM33/netology-final/tree/main/terraform
 
 БАКЕТ ПОДГОТОВЛЕН в YANDEX облаке:
 
-МАНИФЕСТЫ ТЕРРАФОРМА в папке:
-
-https://github.com/AlexanderM33/netology-final/tree/main/terraform/bucket
-
 
 ![01](https://github.com/AlexanderM33/netology-final/assets/122460278/bb7596ae-bae4-4da6-8e4e-960b29e9c327)
 
 ![3](https://github.com/AlexanderM33/netology-final/assets/122460278/8079c104-8f30-4a10-9a1d-c5a983b67153)
 
 
+МАНИФЕСТЫ ТЕРРАФОРМА в папке:
 
+https://github.com/AlexanderM33/netology-final/tree/main/terraform/bucket
 
 
 ---
@@ -96,6 +94,28 @@ https://github.com/AlexanderM33/netology-final/tree/main/terraform/bucket
 1. Работоспособный Kubernetes кластер.
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
 3. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
+
+
+### РЕШЕНИЕ:
+
+Нормальным путем при помощи скриптов kubespray установить не получилось из за блокировки DOCKER на территории РФ  - пришлось заменить 
+
+Заменил ссылки на докер в манифестах kubespray docker.io --> huecker.io -  и все взлетело
+
+Уже потом почитал, что можно было использовать и другие заркала:
+dockerhub.timeweb.cloud
+mirror.gcr.io 
+cr.yandex/mirror
+
+Получил работающий кластер, скриншоты прилагаю:
+
+![9](https://github.com/AlexanderM33/netology-final/assets/122460278/fbd0c55e-91bc-4437-9833-5ebc62fcdd67)
+
+![12](https://github.com/AlexanderM33/netology-final/assets/122460278/89dea242-7597-46bc-8970-a00a6f438feb)
+
+![14](https://github.com/AlexanderM33/netology-final/assets/122460278/83989f1e-03e9-4793-aa86-aa5150d9c224)
+
+![15](https://github.com/AlexanderM33/netology-final/assets/122460278/14b543b9-db3c-4c0d-9b91-62c5b97e772d)
 
 ---
 ### Создание тестового приложения
