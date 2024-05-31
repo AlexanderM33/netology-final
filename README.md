@@ -117,6 +117,9 @@ cr.yandex/mirror
 
 ![15](https://github.com/AlexanderM33/netology-final/assets/122460278/14b543b9-db3c-4c0d-9b91-62c5b97e772d)
 
+
+![16](https://github.com/AlexanderM33/netology-final/assets/122460278/e3157595-83eb-4ecd-87ed-9342087cd315)
+
 ---
 ### Создание тестового приложения
 
