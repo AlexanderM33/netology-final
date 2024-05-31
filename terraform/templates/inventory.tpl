@@ -14,3 +14,4 @@ ${list_worker}
 [k8s_cluster:children]
 kube_control_plane
 kube_node
+calico_rr
