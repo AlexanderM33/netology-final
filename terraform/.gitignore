@@ -4,3 +4,7 @@ terraform.tfstate.backup
 admin.conf
 variables.tf
 /kubespray
+/yc
+/templates
+/bucket
+/.terraform
