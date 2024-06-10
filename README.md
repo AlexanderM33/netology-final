@@ -165,9 +165,12 @@ cr.yandex/mirror
 ![17](https://github.com/AlexanderM33/netology-final/assets/122460278/20026ddf-0b34-4aca-8ded-5b77cbc954cb)
 
 Файлы:
+Так как для экономии я во время выполнения останавливал кластер - IP адреса нод на скриншотах и в hosts разные
 <details close>
 <summary>hosts.yaml</summary>
 <br>
+ 
+ ```
  all:
   hosts:
     node1:
@@ -200,6 +203,7 @@ cr.yandex/mirror
         kube_node:
     calico_rr:
       hosts: {}
+ ```
  </details>    
 
 ---
