@@ -70,9 +70,6 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 В манифестах предполагается использование окружений stage и prod.
 Ход выполнения задания и скриншоты из Terraform Cloud прилагаю ниже:
 
-~~~
-yc iam key create -o key.jsom --service-account-id ajeua1q7bcksfdcc14om
-~~~
 
 ![0002](https://github.com/AlexanderM33/netology-final/assets/122460278/371879a7-e714-4298-b531-0d214dee2729)
 
