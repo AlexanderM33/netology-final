@@ -71,7 +71,10 @@ https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
 
 ---
-### Создание Kubernetes кластера
+<details close>
+<summary>Создание Kubernetes кластера</summary>
+<br>
+
 
 На этом этапе необходимо создать [Kubernetes](https://kubernetes.io/ru/docs/concepts/overview/what-is-kubernetes/) кластер на базе предварительно созданной инфраструктуры.   Требуется обеспечить доступ к ресурсам из Интернета.
 
@@ -85,6 +88,8 @@ https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
   а. С помощью terraform resource для [kubernetes](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_cluster) создать **региональный** мастер kubernetes с размещением нод в разных 3 подсетях      
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
   
+</details>
+
 Ожидаемый результат:
 
 1. Работоспособный Kubernetes кластер.
@@ -117,7 +122,10 @@ cr.yandex/mirror
 ![17](https://github.com/AlexanderM33/netology-final/assets/122460278/d66f2d12-310e-4e03-a7df-bef829207378)
 
 ---
-### Создание тестового приложения
+<details close>
+<summary>Создание тестового приложения</summary>
+<br>
+
 
 Для перехода к следующему этапу необходимо подготовить тестовое приложение, эмулирующее основное приложение разрабатываемое вашей компанией.
 
@@ -129,13 +137,17 @@ cr.yandex/mirror
 2. Альтернативный вариант:  
    а. Используйте любой другой код, главное, чтобы был самостоятельно создан Dockerfile.
 
+</details>
 Ожидаемый результат:
 
 1. Git репозиторий с тестовым приложением и Dockerfile.
 2. Регистри с собранным docker image. В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
 
 ---
-### Подготовка cистемы мониторинга и деплой приложения
+<details close>
+<summary>Подготовка cистемы мониторинга и деплой приложения</summary>
+<br>
+
 
 Уже должны быть готовы конфигурации для автоматического создания облачной инфраструктуры и поднятия Kubernetes кластера.  
 Теперь необходимо подготовить конфигурационные файлы для настройки нашего Kubernetes кластера.
@@ -148,6 +160,7 @@ cr.yandex/mirror
 1. Воспользовать пакетом [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus), который уже включает в себя [Kubernetes оператор](https://operatorhub.io/) для [grafana](https://grafana.com/), [prometheus](https://prometheus.io/), [alertmanager](https://github.com/prometheus/alertmanager) и [node_exporter](https://github.com/prometheus/node_exporter). При желании можете собрать все эти приложения отдельно.
 2. Для организации конфигурации использовать [qbec](https://qbec.io/), основанный на [jsonnet](https://jsonnet.org/). Обратите внимание на имеющиеся функции для интеграции helm конфигов и [helm charts](https://helm.sh/)
 3. Если на первом этапе вы не воспользовались [Terraform Cloud](https://app.terraform.io/), то задеплойте и настройте в кластере [atlantis](https://www.runatlantis.io/) для отслеживания изменений инфраструктуры. Альтернативный вариант 3 задания: вместо Terraform Cloud или atlantis настройте на автоматический запуск и применение конфигурации terraform из вашего git-репозитория в выбранной вами CI-CD системе при любом комите в main ветку. Предоставьте скриншоты работы пайплайна из CI/CD системы.
+</details>
 
 Ожидаемый результат:
 1. Git репозиторий с конфигурационными файлами для настройки Kubernetes.
@@ -156,7 +169,10 @@ cr.yandex/mirror
 4. Http доступ к тестовому приложению.
 
 ---
-### Установка и настройка CI/CD
+<details close>
+<summary>Установка и настройка CI/CD</summary>
+<br>
+
 
 Осталось настроить ci/cd систему для автоматической сборки docker image и деплоя приложения при изменении кода.
 
@@ -166,6 +182,7 @@ cr.yandex/mirror
 2. Автоматический деплой нового docker образа.
 
 Можно использовать [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/), [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) или GitHub Actions.
+</details>
 
 Ожидаемый результат:
 
