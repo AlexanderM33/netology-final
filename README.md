@@ -54,24 +54,14 @@
 
 ### РЕШЕНИЕ:
 МАНИФЕСТЫ ТЕРРАФОРМА в папке:
-https://github.com/AlexanderM33/netology-final/tree/main/terraform
-
-![5](https://github.com/AlexanderM33/netology-final/assets/122460278/c475a7aa-a7b5-4b38-b33e-b937e44a3de1)
-
-![6](https://github.com/AlexanderM33/netology-final/assets/122460278/0828e56c-c950-4e40-baee-a5c3b4eb4de3)
+https://github.com/AlexanderM33/netology-final/tree/main/tf
 
 
-БАКЕТ ПОДГОТОВЛЕН в YANDEX облаке:
 
 
-![01](https://github.com/AlexanderM33/netology-final/assets/122460278/bb7596ae-bae4-4da6-8e4e-960b29e9c327)
-
-![3](https://github.com/AlexanderM33/netology-final/assets/122460278/8079c104-8f30-4a10-9a1d-c5a983b67153)
+https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
 
-МАНИФЕСТЫ ТЕРРАФОРМА в папке:
-
-https://github.com/AlexanderM33/netology-final/tree/main/terraform/bucket
 
 
 ---
@@ -98,7 +88,7 @@ https://github.com/AlexanderM33/netology-final/tree/main/terraform/bucket
 
 ### РЕШЕНИЕ:
 
-Нормальным путем при помощи скриптов kubespray установить не получилось из за блокировки DOCKER на территории РФ  - пришлось заменить 
+Нормальным путем при помощи скриптов kubespray установить не получилось из за блокировки DOCKER на территории РФ (30/05/2024)  - пришлось заменить 
 
 Заменил ссылки на докер в манифестах kubespray docker.io --> huecker.io -  и все взлетело
 
