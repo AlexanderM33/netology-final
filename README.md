@@ -58,9 +58,54 @@
    
 
 
+
 ### РЕШЕНИЕ:
-МАНИФЕСТЫ ТЕРРАФОРМА в папке:
+
+Для выполнения я использовал чистую ВМ в VirtualBox Ubuntu 22.04.
+Установил необходимые пакеты, подготовил манифесты Terraform
+
 https://github.com/AlexanderM33/netology-final/tree/main/tf
+
+Залогинился в Terraform Cloud по созданному токену для того, чтобы сохранялись изменения конфигурации.
+В манифестах предполагается использование окружений stage и prod.
+Ход выполнения задания и скриншоты из Terraform Cloud прилагаю ниже:
+
+![0002](https://github.com/AlexanderM33/netology-final/assets/122460278/371879a7-e714-4298-b531-0d214dee2729)
+
+![0003](https://github.com/AlexanderM33/netology-final/assets/122460278/cc549a97-2de8-433c-9405-123b5d2ac796)
+
+![0004](https://github.com/AlexanderM33/netology-final/assets/122460278/e1c83d07-fd70-4ff2-b9ac-5b0f9132f697)
+
+![0005](https://github.com/AlexanderM33/netology-final/assets/122460278/ced24631-be7f-4c68-b9ae-be5fb96b06ae)
+
+![0006](https://github.com/AlexanderM33/netology-final/assets/122460278/df19b6db-3f65-46a3-8afa-fb89af1413f9)
+
+![0007](https://github.com/AlexanderM33/netology-final/assets/122460278/fae65957-8aa0-4e21-bb45-0bc2be268dbe)
+
+![0008](https://github.com/AlexanderM33/netology-final/assets/122460278/ad2275ec-2114-4381-bdad-4246ec64715c)
+
+![009](https://github.com/AlexanderM33/netology-final/assets/122460278/c01d46d3-ec3c-4fab-a940-bb4f6326c821)
+
+![00010](https://github.com/AlexanderM33/netology-final/assets/122460278/080af1b9-5a32-431b-b4b1-01614665e02b)
+
+![00011](https://github.com/AlexanderM33/netology-final/assets/122460278/f27463c3-6922-4d4b-8a60-c9659f074b77)
+
+![00012](https://github.com/AlexanderM33/netology-final/assets/122460278/8ded4504-9e73-42dc-b111-0cd054ae4cc7)
+
+![00013](https://github.com/AlexanderM33/netology-final/assets/122460278/fc016f5a-5fd2-4844-afae-73a2ef2059ef)
+
+![00014](https://github.com/AlexanderM33/netology-final/assets/122460278/bd5df285-77a2-46f3-b8cd-37e04fa33078)
+
+![000015](https://github.com/AlexanderM33/netology-final/assets/122460278/909754b8-d1eb-4a8f-bd8f-f83339f76a0a)
+
+![00016](https://github.com/AlexanderM33/netology-final/assets/122460278/d4ec91af-b268-4f7c-93f2-fee038efc097)
+
+![00017](https://github.com/AlexanderM33/netology-final/assets/122460278/b3e2d896-b59c-407b-9088-55a33cfb3d0e)
+
+![00018](https://github.com/AlexanderM33/netology-final/assets/122460278/8931e0a3-c44b-41d4-b11d-1fbcb58d96d0)
+
+![000019](https://github.com/AlexanderM33/netology-final/assets/122460278/b64420f7-a040-4084-b01e-daa03b1734e4)
+
 
 
 
