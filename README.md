@@ -144,27 +144,63 @@ https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
 ### РЕШЕНИЕ:
 
-Нормальным путем при помощи скриптов kubespray установить не получилось из за блокировки DOCKER на территории РФ (30/05/2024)  - пришлось заменить 
+Нормальным путем при помощи скриптов kubespray установить не получилось из за блокировки DOCKER на территории РФ (этот пункт задания я выполнял 30/05/2024)  - пришлось заменить ссылки на докер в манифестах kubespray docker.io --> huecker.io -  и все взлетело
 
-Заменил ссылки на докер в манифестах kubespray docker.io --> huecker.io -  и все взлетело
-
-Уже потом почитал, что можно было использовать и другие заркала:
+Уже потом почитал, что можно было использовать и другие зеркала:
 dockerhub.timeweb.cloud
 mirror.gcr.io 
 cr.yandex/mirror
+Ну а с 03 июня докер уже вернулся к обычнной работе, но опыт установки был интересный
 
 Получил работающий кластер, скриншоты прилагаю:
 
-![9](https://github.com/AlexanderM33/netology-final/assets/122460278/fbd0c55e-91bc-4437-9833-5ebc62fcdd67)
+![9](https://github.com/AlexanderM33/netology-final/assets/122460278/1b76a651-d416-4a81-a67e-fbd4385c5608)
 
-![12](https://github.com/AlexanderM33/netology-final/assets/122460278/89dea242-7597-46bc-8970-a00a6f438feb)
+![12](https://github.com/AlexanderM33/netology-final/assets/122460278/146978a8-3cd1-46d4-a534-a14b3687d815)
 
-![14](https://github.com/AlexanderM33/netology-final/assets/122460278/83989f1e-03e9-4793-aa86-aa5150d9c224)
+![14](https://github.com/AlexanderM33/netology-final/assets/122460278/dca6db1e-ed70-49f3-bea1-1b92721521b3)
 
-![15](https://github.com/AlexanderM33/netology-final/assets/122460278/14b543b9-db3c-4c0d-9b91-62c5b97e772d)
+![15](https://github.com/AlexanderM33/netology-final/assets/122460278/141088f3-3ca7-4d71-9991-abc9cf24bbe7)
 
+![17](https://github.com/AlexanderM33/netology-final/assets/122460278/20026ddf-0b34-4aca-8ded-5b77cbc954cb)
 
-![17](https://github.com/AlexanderM33/netology-final/assets/122460278/d66f2d12-310e-4e03-a7df-bef829207378)
+Файлы:
+<details close>
+<summary>hosts.yaml</summary>
+<br>
+ all:
+  hosts:
+    node1:
+      ansible_host: 158.160.112.112
+      ip: 10.10.1.6
+      ansible_user: ubuntu
+      kubeconfig_localhost: true
+    node2:
+      ansible_host: 158.160.61.190
+      ip: 10.10.1.28
+      ansible_user: ubuntu
+    node3:
+      ansible_host: 84.201.179.150
+      ip: 10.10.2.33
+      ansible_user: ubuntu
+  children:
+    kube_control_plane:
+      hosts:
+        node1:
+    kube_node:
+      hosts:
+        node2:
+        node3:
+    etcd:
+      hosts:
+        node1:
+    k8s_cluster:
+      children:
+        kube_control_plane:
+        kube_node:
+    calico_rr:
+      hosts: {}
+ </details>    
 
 ---
 <details close>
