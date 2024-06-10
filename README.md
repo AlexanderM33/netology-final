@@ -1,4 +1,4 @@
-# netology-final
+# netology-final-diplom
 
 # Дипломный практикум в Yandex.Cloud
   * [Цели:](#цели)
