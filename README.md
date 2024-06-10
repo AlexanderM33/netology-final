@@ -26,7 +26,7 @@
 ---
 ## Этапы выполнения:
 
-<details open>
+<details close>
 <summary>Создание облачной инфраструктуры</summary>
 <br>
 
