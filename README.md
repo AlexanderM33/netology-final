@@ -70,6 +70,10 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 В манифестах предполагается использование окружений stage и prod.
 Ход выполнения задания и скриншоты из Terraform Cloud прилагаю ниже:
 
+~~~
+yc iam key create -o key.jsom --service-account-id ajeua1q7bcksfdcc14om
+~~~
+
 ![0002](https://github.com/AlexanderM33/netology-final/assets/122460278/371879a7-e714-4298-b531-0d214dee2729)
 
 ![0003](https://github.com/AlexanderM33/netology-final/assets/122460278/cc549a97-2de8-433c-9405-123b5d2ac796)
@@ -107,8 +111,7 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 ![000019](https://github.com/AlexanderM33/netology-final/assets/122460278/b64420f7-a040-4084-b01e-daa03b1734e4)
 
 
-
-
+Здесь я проиллюстрировал измениние количества рабочих нод, применение команд `terraform destroy` и `terraform apply` происходит так, как и задумывалось
 
 https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
