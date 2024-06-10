@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: mishinan
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGgoPxbzzVn9t/WqoIR4ZQRkQANiLBKToqs2FTofxTmg6NvIZNu6sM++EFaBa+xrleCryh2bqXWsFikNA3fS4dwFLLh+ONbdIsZKMpPQp3CUjNqi+RPQuOH8mV9KpjaEYNg3peyDjkTqOQwW+9Xkl7f7ExdxYufuatfPCEvvAcpwOvLUza4MzWJCvIeO4Ti8HY6k5fXTt4xH+B5SegR7W5Ww5YGNbs4ph5C+iCUrVPikHPWYvSdKC8AOY6Euw9xbHhUjxBvOc2Pc36f92vSsJl/uO4/h6URCYeQTVZHWjeeqla99/mZzK58t+3p3sa6ZxpSJ16K37u4lKfgtt/tWNeCRTGdWvXI0Z3mo8/ATOUCR6EBGMcSJTEVFEotC32n/Dd1cV2rJJaWPn2Zv7w8jG0kVEz4u4iFHyUBviR2prsdMi24R9nvfRz6mjv3uU5x+uYX8aDD3NkKz8y+XDvVKlSrvekONRsYnk49ZfMpDUKfm4z6kaBjd5w+HUZ8fuFy7c= user@ubuntu-clean
