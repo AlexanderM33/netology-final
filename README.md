@@ -438,6 +438,146 @@ spec:
 2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
 3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
 
+Систему для непрерывной сборки и автоматического развертывания я отганизовал на Gitlab
+Для этого перенес папки проекта в репозиторий Gitlab 
+https://gitlab.com/devops-netology-homework/netology/
+Убрал из кластера ручной тестовый деплоймент моего приложения из предыдущего этапа
+
+Для организации пайплайна подготовил следующий ci-cd файл
+
+```
+stages:
+- build
+- deploy
+
+variables:
+  IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  K8S_NAMESPACE: default
+  K8S_DEPLOYMENT_NAME: app-deployment
+  K8S_SERVICE_NAME: app-service
+
+build:
+  stage: build
+  image:
+    name: gcr.io/kaniko-project/executor:v1.9.0-debug
+    entrypoint: [""]
+  script:
+  - /kaniko/executor --context "${CI_PROJECT_DIR}/app" --dockerfile "${CI_PROJECT_DIR}/app/Dockerfile" --destination "${CI_REGISTRY_IMAGE}:${IMAGE_TAG}"
+  only:
+  - main
+
+deploy:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  stage: deploy
+  script:
+  - kubectl config get-contexts
+  - kubectl config use-context devops-netology-homework/netology:gitlab-agent
+  - |
+    kubectl apply -f - <<EOF
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: $K8S_DEPLOYMENT_NAME
+      namespace: $K8S_NAMESPACE
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: $K8S_DEPLOYMENT_NAME
+      template:
+        metadata:
+          labels:
+            app: $K8S_DEPLOYMENT_NAME
+        spec:
+          containers:
+            - name: $K8S_DEPLOYMENT_NAME
+              image: $CI_REGISTRY_IMAGE:$IMAGE_TAG
+              ports:
+                - containerPort: 80
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: $K8S_SERVICE_NAME
+      namespace: $K8S_NAMESPACE
+    spec:
+      selector:
+        app: $K8S_DEPLOYMENT_NAME
+      ports:
+        - name: http
+          protocol: TCP
+          port: 80
+          targetPort: 80
+          nodePort: 30080
+      type: NodePort
+    EOF
+  environment:
+    name: production
+  only:
+  - mai
+
+```
+
+Скриншоты прилагаю:
+
+![94](https://github.com/AlexanderM33/netology-final/assets/122460278/1fcbb798-6017-4892-8c36-e69fe5b9e6da)
+
+![95](https://github.com/AlexanderM33/netology-final/assets/122460278/e59d83c4-d6f4-40ac-a3ba-63b70166291e)
+
+![96](https://github.com/AlexanderM33/netology-final/assets/122460278/289ec477-cf33-4c1f-ae9e-223a027bf5f8)
+
+![97](https://github.com/AlexanderM33/netology-final/assets/122460278/90580384-990b-49af-a126-ab67bf91a338)
+
+![98](https://github.com/AlexanderM33/netology-final/assets/122460278/97b7d9be-609a-4b4e-b175-f8c5ce35e4d0)
+
+![101](https://github.com/AlexanderM33/netology-final/assets/122460278/c1e4d32d-4e31-46d3-a3a7-2c2286fb2447)
+
+
+Иллюстрирую, что происходит автодеплоймент при изменении версии приложения:
+
+![111](https://github.com/AlexanderM33/netology-final/assets/122460278/eafdaec2-8179-49b8-bfaa-ffc6872e02d7)
+
+![112](https://github.com/AlexanderM33/netology-final/assets/122460278/45e8d7b4-fd4c-43f8-9a16-a20f7add864a)
+
+![113](https://github.com/AlexanderM33/netology-final/assets/122460278/25841aac-f82c-4c9f-be92-950a56d235f2)
+
+![114](https://github.com/AlexanderM33/netology-final/assets/122460278/4b72f3cb-07f9-4ed7-96d3-b1da711c056a)
+
+![115](https://github.com/AlexanderM33/netology-final/assets/122460278/3ee80f21-99ce-4bcb-bac0-cb6239a273bf)
+
+![116](https://github.com/AlexanderM33/netology-final/assets/122460278/e7ac70f5-b6a9-4f5d-9157-d696ccab113b)
+
+![117](https://github.com/AlexanderM33/netology-final/assets/122460278/a753cc07-d5fa-400b-a1f2-9d08cfd64dac)
+
+![118](https://github.com/AlexanderM33/netology-final/assets/122460278/08f4520c-6d1b-407b-84df-dbf6293577b6)
+
+![119](https://github.com/AlexanderM33/netology-final/assets/122460278/7ef77730-02a5-43bb-a03e-90c3c9339efa)
+
+![120](https://github.com/AlexanderM33/netology-final/assets/122460278/459965c0-9464-4413-b77f-7c836c10744c)
+
+![121](https://github.com/AlexanderM33/netology-final/assets/122460278/4b63e872-8e40-4e1d-8265-14aa7b75686f)
+
+![122](https://github.com/AlexanderM33/netology-final/assets/122460278/c879637d-e297-443f-8d2d-62ee23f69213)
+
+![123](https://github.com/AlexanderM33/netology-final/assets/122460278/675f9f86-2369-42f1-a61c-13433910c6aa)
+
+![125](https://github.com/AlexanderM33/netology-final/assets/122460278/556c5f5d-09ec-4651-9522-5b3b7afdfec6)
+
+![126](https://github.com/AlexanderM33/netology-final/assets/122460278/9826da45-8ab1-47b4-a16b-898c7b11f3d0)
+
+![127](https://github.com/AlexanderM33/netology-final/assets/122460278/6bbe64e3-ec12-42de-aff3-c909c66564dd)
+
+![128](https://github.com/AlexanderM33/netology-final/assets/122460278/9288780b-0032-4f92-8021-7ca6b747f313)
+
+![129](https://github.com/AlexanderM33/netology-final/assets/122460278/b339963a-2494-4daa-ab89-4ddcba5f61da)
+
+
+
+
+
 ---
 ## Что необходимо для сдачи задания?
 
