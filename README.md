@@ -105,7 +105,7 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 
 
 
-Здесь я проиллюстрировал измениние количества рабочих нод, применение команд `terraform destroy` и `terraform apply` происходит так, как и задумывалось - история изменений сохраняется, логи пишутся
+Здесь я проиллюстрировал изменение количества рабочих нод, применение команд `terraform destroy` и `terraform apply` происходит так, как и задумывалось - история изменений сохраняется, логи пишутся
 
 https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
