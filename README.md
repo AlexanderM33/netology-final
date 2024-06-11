@@ -81,12 +81,6 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 
 ![0006](https://github.com/AlexanderM33/netology-final/assets/122460278/df19b6db-3f65-46a3-8afa-fb89af1413f9)
 
-![0007](https://github.com/AlexanderM33/netology-final/assets/122460278/fae65957-8aa0-4e21-bb45-0bc2be268dbe)
-
-![0008](https://github.com/AlexanderM33/netology-final/assets/122460278/ad2275ec-2114-4381-bdad-4246ec64715c)
-
-![009](https://github.com/AlexanderM33/netology-final/assets/122460278/c01d46d3-ec3c-4fab-a940-bb4f6326c821)
-
 ![00010](https://github.com/AlexanderM33/netology-final/assets/122460278/080af1b9-5a32-431b-b4b1-01614665e02b)
 
 ![00011](https://github.com/AlexanderM33/netology-final/assets/122460278/f27463c3-6922-4d4b-8a60-c9659f074b77)
