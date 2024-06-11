@@ -109,6 +109,7 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 
 https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
+В итоге остановился на конфигурации из одной мастер ноды и двух worker нодах
 
 
 
