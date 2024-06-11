@@ -417,6 +417,18 @@ spec:
 ![53](https://github.com/AlexanderM33/netology-final/assets/122460278/1645469a-90fc-423b-8712-1e5c1e742005)
 
 
+### КЛАСТЕР ПОКА РАБОТАЕТ на время проверки диплома
+
+**Grafana**
+**http://158.160.104.161:32000/login**
+```
+логин admin
+пароль netology
+```
+
+Тестовое приложение:
+**http://158.160.104.161:30080/**
+
 ---
 <details close>
 <summary>Установка и настройка CI/CD</summary>
