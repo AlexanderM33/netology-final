@@ -291,7 +291,7 @@ https://hub.docker.com/repository/docker/alexanderm33/app-netology/general
 
 ![24](https://github.com/AlexanderM33/netology-final/assets/122460278/59bf9a96-326c-4a06-980f-138f54221825)
 
-
+![1212](https://github.com/AlexanderM33/netology-final/assets/122460278/80a686e3-147c-468a-981a-684686b1c13c)
 
 
 ---
@@ -318,6 +318,61 @@ https://hub.docker.com/repository/docker/alexanderm33/app-netology/general
 2. Http доступ к web интерфейсу grafana.
 3. Дашборды в grafana отображающие состояние Kubernetes кластера.
 4. Http доступ к тестовому приложению.
+
+
+ВЫПОЛНЕНИЕ:
+Воспользовался предложенным способом и установил все при помощи [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus)
+
+Для просмотра веб интерфейса Grafana применил следующий манифест - он создает сервис типа NodePort на 32000порту через который смотрим в Grafana
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app.kubernetes.io/name: grafana
+  name: grafana-nodeport
+  namespace: monitoring
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+    nodePort: 32000
+  selector:
+    app.kubernetes.io/name: grafana
+
+```
+https://github.com/AlexanderM33/netology-final/blob/main/grafana/grafana-service.yaml
+
+Скриншоты веб интерфейса с графиками моего кластера:
+
+![40](https://github.com/AlexanderM33/netology-final/assets/122460278/406476c0-5524-432b-8f7a-88c97f3628c5)
+
+![41](https://github.com/AlexanderM33/netology-final/assets/122460278/fb9fff15-17c0-4446-8bf7-4fa43b61c46e)
+
+![43](https://github.com/AlexanderM33/netology-final/assets/122460278/7cb095ef-d76d-4243-b9d9-365e2bfaf024)
+
+![44](https://github.com/AlexanderM33/netology-final/assets/122460278/0afa795f-8ebf-4112-b0f6-8cf9f42a0f50)
+
+![45](https://github.com/AlexanderM33/netology-final/assets/122460278/23a52191-830c-4bd8-a745-f37e18d2e84b)
+
+![46](https://github.com/AlexanderM33/netology-final/assets/122460278/5f8926a8-cda8-4147-861d-d886a2f5055d)
+
+
+Приложение разворачивается из моего репозитория в Dockerhub на кластере - скриншоты:
+
+![47](https://github.com/AlexanderM33/netology-final/assets/122460278/5436d325-4e57-4914-815e-508be770b4e1)
+
+![48](https://github.com/AlexanderM33/netology-final/assets/122460278/7f197a6f-c89e-4f72-ac20-572ada02b7e2)
+
+![49](https://github.com/AlexanderM33/netology-final/assets/122460278/ec61c776-7373-41a2-a3e2-e7fded6884fc)
+
+![51](https://github.com/AlexanderM33/netology-final/assets/122460278/bdcc5e54-3979-4b15-b0ff-b498262c1f40)
+
+![53](https://github.com/AlexanderM33/netology-final/assets/122460278/1645469a-90fc-423b-8712-1e5c1e742005)
+
 
 ---
 <details close>
