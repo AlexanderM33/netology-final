@@ -361,7 +361,49 @@ https://github.com/AlexanderM33/netology-final/blob/main/grafana/grafana-service
 ![46](https://github.com/AlexanderM33/netology-final/assets/122460278/5f8926a8-cda8-4147-861d-d886a2f5055d)
 
 
-Приложение разворачивается из моего репозитория в Dockerhub на кластере - скриншоты:
+
+Приложение разворачивается из моего репозитория в Dockerhub на кластере при помощи манифеста, который разворачивает приложение и вешает его на 30080 порту:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    name: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: nginx
+  template:
+    metadata:
+      labels:
+        name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: alexanderm33/app-netology:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    nodePort: 30080
+    name: http
+  selector:
+    name: nginx
+```
+
+Прикладываю скриншоты:
 
 ![47](https://github.com/AlexanderM33/netology-final/assets/122460278/5436d325-4e57-4914-815e-508be770b4e1)
 
