@@ -95,16 +95,17 @@ https://github.com/AlexanderM33/netology-final/tree/main/tf
 
 ![00016](https://github.com/AlexanderM33/netology-final/assets/122460278/d4ec91af-b268-4f7c-93f2-fee038efc097)
 
+![000019](https://github.com/AlexanderM33/netology-final/assets/122460278/b64420f7-a040-4084-b01e-daa03b1734e4)
+
 ![pt1](https://github.com/AlexanderM33/netology-final/assets/122460278/cac4623e-fad2-431e-aff6-0d238597d58a)
 
 ![pt2](https://github.com/AlexanderM33/netology-final/assets/122460278/1d9e51ac-bc44-49af-8628-5de8b4a099c5)
 
 ![pt3](https://github.com/AlexanderM33/netology-final/assets/122460278/694e2c50-f72a-405d-bcc7-b066244af5fd)
 
-![000019](https://github.com/AlexanderM33/netology-final/assets/122460278/b64420f7-a040-4084-b01e-daa03b1734e4)
 
 
-Здесь я проиллюстрировал измениние количества рабочих нод, применение команд `terraform destroy` и `terraform apply` происходит так, как и задумывалось
+Здесь я проиллюстрировал измениние количества рабочих нод, применение команд `terraform destroy` и `terraform apply` происходит так, как и задумывалось - история изменений сохраняется, логи пишутся
 
 https://app.terraform.io/app/Alexander_M_MBZ/workspaces/stage
 
