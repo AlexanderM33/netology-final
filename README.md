@@ -234,6 +234,69 @@ C 03 июня 2024 докер уже вернулся к обычнной раб
 1. Git репозиторий с тестовым приложением и Dockerfile.
 2. Регистри с собранным docker image. В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
 
+Я подготовил Dockerfile 
+```
+FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/conf.d/
+COPY index.html /usr/share/nginx/html/
+CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80
+```
+Он берет станлдартный образ nginx и меняет стартовую страницу на мой файл index.html
+
+<details close>
+<summary>index.html</summary>
+<br>
+<!DOCTYPE html>
+<HTML>
+
+    <HEAD>
+    
+    <TITLE>NETOLOGY DIPLOM</TITLE>
+    
+    </HEAD>
+    
+    <BODY BGCOLOR="FFFFFF">
+    
+    
+    <HR>
+    
+    <a href="https://github.com/AlexanderM33/netology-final">MY DIPLOM FILES</a>
+    
+    this is a link to my repository
+
+    <H1>DevOps Sample Project</H1>
+    
+    <H2>v 0.0.1</H2>
+    
+    
+    <HR>
+    
+    </BODY>
+    
+    </HTML>
+</details>
+
+Итоговый образ для теста я выложил в DockerHub
+```
+докерхаб логин: "alexanderm33"
+пароль:    "4netology!mishin"
+```
+
+Ссылка на репозиторий:
+
+https://hub.docker.com/repository/docker/alexanderm33/app-netology/general
+
+Скриншоты:
+
+![23](https://github.com/AlexanderM33/netology-final/assets/122460278/cde3834b-dd9b-4dba-9124-ac111d8fc014)
+
+![24](https://github.com/AlexanderM33/netology-final/assets/122460278/59bf9a96-326c-4a06-980f-138f54221825)
+
+
+
+
 ---
 <details close>
 <summary>Подготовка cистемы мониторинга и деплой приложения</summary>
