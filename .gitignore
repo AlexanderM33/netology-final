@@ -7,4 +7,6 @@
 /netology-backup
 /netology-gitlab
 error.txt
+key.json
 /terraform/
+/.terraform/
