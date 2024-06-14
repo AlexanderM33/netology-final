@@ -3,3 +3,6 @@ personal.txt
 terraform.tfstate
 terraform.tfstate.backup
 /.terraform
+key.json
+/terraform/
+/.terraform/
