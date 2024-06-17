@@ -79,6 +79,15 @@ helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx
 
 ```
+Так как нет своего домена прописал внешний IP в `/etc/hosts`
+
+![1001](https://github.com/AlexanderM33/netology-final/assets/122460278/723722ff-402a-4967-8180-1e155032d2c8)
+
+![1002](https://github.com/AlexanderM33/netology-final/assets/122460278/0555a0fa-a650-42ae-84c5-30e7756445e0)
+
+![1003](https://github.com/AlexanderM33/netology-final/assets/122460278/bdeb29a6-d41a-4ed1-985a-831b863d20e8)
+
+![1004](https://github.com/AlexanderM33/netology-final/assets/122460278/504d286c-68fb-4b3f-b874-b1c002cd6a8d)
 
 
 
