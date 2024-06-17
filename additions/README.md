@@ -30,7 +30,7 @@ resource "yandex_vpc_subnet" "diplom_subnet_c" {
 
 ```
 можно следающим образом:
-добавить в переменные подсети:
+добавить в `variables.tf` подсети:
 ```
 variable "subnets" {
   type = map(object({
