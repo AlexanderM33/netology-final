@@ -1,14 +1,24 @@
-variable "subnet-zones" {
-  type    = list(string)
-  default = ["ru-central1-a", "ru-central1-b","ru-central1-d"]
-}
-
-variable "cidr" {
-  type    = map(list(string))
+variable "subnets" {
+  type = map(object({
+    zone         = string
+    cidr_block   = string
+  }))
   default = {
-    stage = ["10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24"]    
+    subnet_a = {
+      zone       = "ru-central1-a"
+      cidr_block = "10.0.0.0/24"
+    }
+    subnet_b = {
+      zone       = "ru-central1-b"
+      cidr_block = "10.0.1.0/24"
+    }
+    subnet_d = {
+      zone       = "ru-central1-d"
+      cidr_block = "10.0.2.0/24"
+    }
   }
 }
+
 
 variable "instance_cores" {
   description = "Number of CPU cores"

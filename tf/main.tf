@@ -25,7 +25,7 @@ resource "yandex_compute_instance_group" "master_nodes_group" {
 
     network_interface {
       network_id = yandex_vpc_network.diplom_vpc.id
-      subnet_ids = [yandex_vpc_subnet.diplom_subnet_a.id, yandex_vpc_subnet.diplom_subnet_b.id, yandex_vpc_subnet.diplom_subnet_c.id]
+      subnet_ids = [yandex_vpc_subnet.diplom_subnet_a.id, yandex_vpc_subnet.diplom_subnet_b.id, yandex_vpc_subnet.diplom_subnet_d.id]
       nat        = true
       ipv6       = false
     }
@@ -78,7 +78,7 @@ resource "yandex_compute_instance_group" "worker_nodes_group" {
 
     network_interface {
       network_id = yandex_vpc_network.diplom_vpc.id
-      subnet_ids = [yandex_vpc_subnet.diplom_subnet_a.id, yandex_vpc_subnet.diplom_subnet_b.id, yandex_vpc_subnet.diplom_subnet_c.id]
+      subnet_ids = [yandex_vpc_subnet.diplom_subnet_a.id, yandex_vpc_subnet.diplom_subnet_b.id, yandex_vpc_subnet.diplom_subnet_d.id]
       nat        = true
       ipv6       = false
     }
