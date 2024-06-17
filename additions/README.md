@@ -91,7 +91,8 @@ resource "yandex_vpc_subnet" "subnet_zones" {
 
 ### Второй вопрос (о NodePort)
 
-Для того, чтобы избавиться от сервиса NodePort c ручным вводом порта для доступа к приложению, разверну в кластере ingress контроллер
+Для того, чтобы избавиться от сервиса NodePort c ручным вводом порта для доступа к приложению, разверну в кластере ingress контроллер.
+
 В ходе выполнения воспользовался установкой при помощи Helm
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
