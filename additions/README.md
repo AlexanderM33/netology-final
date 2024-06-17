@@ -72,7 +72,9 @@ resource "yandex_vpc_subnet" "subnet" {
 }
 ```
 
+
 Либо также оптимизировать код можно при помощи count.index таким образом:
+
 Пример:
 ```
 resource "yandex_vpc_network" "vpc" {
