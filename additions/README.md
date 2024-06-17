@@ -79,7 +79,52 @@ helm repo update
 helm install ingress-nginx ingress-nginx/ingress-nginx
 
 ```
+
+Применил
+```
+kubectl apply -f ingress.yaml
+```
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: entry-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "app.diplom.ru"
+    http:
+      paths:
+      - pathType: Prefix
+        backend:
+          service:
+            name: app-svc
+            port:
+              number: 80
+        path: /
+  - host: "grafana.diplom.ru"
+    http:
+      paths:
+      - pathType: Prefix
+        backend:
+          service:
+            name: grafana-svc
+            port:
+              number: 80
+        path: /
+```
+
 Так как нет своего домена прописал внешний IP в `/etc/hosts`
+
+```
+
+[XXX.XXX.XXX.XXX] app.diplom.ru
+[XXX.XXX.XXX.XXX] grafana.diplom.ru
+```
 
 ![1001](https://github.com/AlexanderM33/netology-final/assets/122460278/723722ff-402a-4967-8180-1e155032d2c8)
 
