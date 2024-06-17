@@ -53,7 +53,8 @@ variable "subnets" {
 
 ```
 
-И создавать их в network.tf про помощи цикла:
+И создавать их в network.tf про помощи цикла `for_each`:
+https://developer.hashicorp.com/terraform/language/meta-arguments/for_each
 
 ```
 resource "yandex_vpc_network" "diplom_vpc" {
