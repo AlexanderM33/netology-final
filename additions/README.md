@@ -72,6 +72,22 @@ resource "yandex_vpc_subnet" "subnet" {
 }
 ```
 
+Либо также оптимизировать код можно при помощи count.index таким образом:
+Пример:
+```
+resource "yandex_vpc_network" "vpc" {
+  name = var.vpc_name
+}
+resource "yandex_vpc_subnet" "subnet_zones" {
+  count          = 3
+  name           = "subnet-${var.subnet_zone[count.index]}"
+  zone           = var.subnet_zone[count.index]
+  network_id     = yandex_vpc_network.develop.id
+  v4_cidr_blocks = ["${var.cidr[count.index]}"]
+}
+```
+
+### Второй вопрос (о NodePort)
 
 Для того, чтобы избавиться от сервиса NodePort c ручным вводом порта для доступа к приложению, разверну в кластере ingress контроллер
 В ходе выполнения воспользовался установкой при помощи Helm
